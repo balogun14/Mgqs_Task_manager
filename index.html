@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Task Manager</title>
+		<link rel="stylesheet" href="./styles.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap"
+			rel="stylesheet" />
+	</head>
+	<body>
+        <div id="app">
+            <h1>MGQS Task Management System</h1>
+            <div class="form-container">
+                <h2>Add Task</h2>
+                <select id="client-name">
+                    </select>
+                <select id="task-type">
+                    <option value="sweeping">Sweeping</option>
+                    <option value="washing-plate">Washing Plate</option>
+                    <option value="serving">Serving</option>
+                    <option value="toilet">Toilet</option>
+                </select>
+                <input type="number" id="task-quantity" min="1" placeholder="Quantity (if applicable)" required>
+                <button id="add-task-button">Add Task</button>
+            </div>
+            <div class="task-list-container">
+                <h2>Task List</h2>
+                <input type="text" id="client-search" placeholder="Search by client name">
+                <ul id="task-list">
+                    </ul>
+            </div>
+        </div>
+    </body>
+	<script src="./scripts.js"></script>
+</html>
