@@ -44,3 +44,5 @@ This project is licensed under the MIT License.
 * Develop an Algorithmn that clears the record daily and reassign task automatically
 * Use Table for the output instead of List For better Ui
 * Add Authentication (None Currently)
+* Ability to edit task assigned to someone
+
