@@ -47,6 +47,9 @@ const addTaskButton = document.getElementById("add-task-button");
 addTaskButton.addEventListener("click", addTask);
 
 function addTask() {
+	//TODO:Add the functionality that uses the taskCountMap
+	//TODO: Develop an Algorithmn that clears the record daily and reassign task automatically
+
 	const clientId = document.getElementById("name").value;
 	const taskType = document.getElementById("task-type").value;
 	// Validate input
@@ -64,6 +67,7 @@ function addTask() {
 
 // Function to update task list dynamically
 function updateTaskList() {
+	//TODO:Use Table for the output
 	const taskList = document.getElementById("task-list");
 	taskList.innerHTML = ""; // Clear existing tasks
 
@@ -119,27 +123,25 @@ function search() {
 	updateTaskList();
 }
 
-
-const captureButton = document.getElementById('convert-button');
-captureButton.addEventListener('click', captureTaskList);
+const captureButton = document.getElementById("convert-button");
+captureButton.addEventListener("click", captureTaskList);
 
 function captureTaskList() {
-  const taskList = document.getElementById('task-list'); 
-  html2canvas(taskList).then(canvas => {
-    const imgData = canvas.toDataURL('image/png');
-    const downloadLink = document.createElement('a');
-    downloadLink.href = imgData;
-    downloadLink.download = 'task_list.png';
-    downloadLink.click();
-  });
+	const taskList = document.getElementById("task-list");
+	html2canvas(taskList).then((canvas) => {
+		const imgData = canvas.toDataURL("image/png");
+		const downloadLink = document.createElement("a");
+		downloadLink.href = imgData;
+		downloadLink.download = "task_list.png";
+		downloadLink.click();
+	});
 }
 
 function autenticateNormalUser(params) {
-    //TODO: Add this to authenticate normal user
+	//TODO: Add this to authenticate normal user
 }
 function authenticateAdminUser(params) {
-    //TODO:Add this to Authenticate admin user
-    
+	//TODO:Add this to Authenticate admin user
 }
 
 // Update task list on page load
