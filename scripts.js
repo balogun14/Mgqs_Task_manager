@@ -119,5 +119,23 @@ function search() {
 	updateTaskList();
 }
 
+// ... include html2canvas library
+
+const captureButton = document.getElementById('convert-button');
+captureButton.addEventListener('click', captureTaskList);
+
+function captureTaskList() {
+  const taskList = document.getElementById('task-list'); // Assuming your list has this ID
+  html2canvas(taskList).then(canvas => {
+    const imgData = canvas.toDataURL('image/png');
+    // Display or download the image using imgData
+    const downloadLink = document.createElement('a');
+    downloadLink.href = imgData;
+    downloadLink.download = 'task_list.png'; // Customize filename if needed
+    downloadLink.click();
+  });
+}
+
+
 // Update task list on page load
 updateTaskList();
