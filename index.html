@@ -16,7 +16,7 @@
             <h1>MGQS Task Management System</h1>
             <div class="form-container">
                 <h2>Add Task</h2>
-                <select id="client-name">
+                <select id="name">
                     </select>
                 <select id="task-type">
                     <option value="sweeping">Sweeping</option>
@@ -24,12 +24,12 @@
                     <option value="serving">Serving</option>
                     <option value="toilet">Toilet</option>
                 </select>
-                <input type="number" id="task-quantity" min="1" placeholder="Quantity (if applicable)" required>
                 <button id="add-task-button">Add Task</button>
             </div>
             <div class="task-list-container">
                 <h2>Task List</h2>
-                <input type="text" id="client-search" placeholder="Search by client name">
+                <input type="text" id="name-search" placeholder="Search by Name">
+                <button onclick="search()">Search</button>
                 <ul id="task-list">
                     </ul>
             </div>
