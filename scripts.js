@@ -150,5 +150,26 @@ function search() {
     });
 }
 
+const captureButton = document.getElementById("convert-button");
+captureButton.addEventListener("click", captureTaskList);
+
+function captureTaskList() {
+	const taskList = document.getElementById("task-table");
+	html2canvas(taskList).then((canvas) => {
+		const imgData = canvas.toDataURL("image/png");
+		const downloadLink = document.createElement("a");
+		downloadLink.href = imgData;
+		downloadLink.download = "task-table.png";
+		downloadLink.click();
+	});
+}
+
+function autenticateNormalUser(params) {
+	//TODO: Add this to authenticate normal user
+}
+function authenticateAdminUser(params) {
+	//TODO:Add this to Authenticate admin user
+}
+
 
 
