@@ -1,4 +1,4 @@
-/* style.css */
+style.css
 
 body {
 	font-family: "Protest Strike", sans-serif;
@@ -51,3 +51,73 @@ button:hover {
 #task-list li span {
 	font-weight: bold;
 }
+
+/* styles.css */
+
+body {
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 20px;
+}
+
+.form-container,
+.task-list-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+select,
+input[type="number"],
+input[type="text"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+#task-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#task-table th,
+#task-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+#task-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+#task-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+
