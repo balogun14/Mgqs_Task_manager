@@ -1,21 +1,27 @@
+//Hashed Password for Normal User
+const nUsersha256 =
+	"53dc7a5135e96bcb2ce66063c039c8029f08c92cabba746566d685d867f82bb4";
+//HAshed Admin Password
+const AdUserSha =
+	"dc4aa707636ec734bb22a822b62592c85c668c511f10e98da810420c8d5d2181";
 
-function autenticateNormalUserOrAdminUser() {
-	
+function authenticateNormalUserOrAdminUser() {
+	const data = document.getElementById("pass").value;
+	const hashbits = sjcl.hash.sha256.hash(data);
+	const hashedData = sjcl.codec.hex.fromBits(hashbits);
+	if (hashedData === nUsersha256) {
+		sessionStorage.setItem("authenticated", "true");
+		window.location.href = "home.html";
+	} else if (AdUserSha === hashedData) {
+		window.location.href = "admin.html";
+	} else {
+		alert("Incorrect password");
+	}
 }
 
-// Your data to hash
-const data = "This is some sensitive data";
-
-// Convert data to bit array (optional, but recommended)
-const dataBits = sjcl.codec.utf8String.toBits(data);
-
-// Create a hashing object using SHA-256
-const hash = sjcl.hash.sha256.create();
-
-// Update the hash with the data
-hash.update(dataBits);
-
-// Finalize the hash and get the output
-const hashedData = sjcl.codec.hex.fromBits(hash.finalize());
-
-console.log("Hashed data:", hashedData);
+document.addEventListener("DOMContentLoaded", function () {
+	const isAuthenticated = sessionStorage.getItem("authenticated");
+	if (isAuthenticated) {
+		window.location.href = "home.html";
+	}
+});
