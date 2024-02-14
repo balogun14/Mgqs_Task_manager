@@ -164,12 +164,6 @@ function captureTaskList() {
 	});
 }
 
-function autenticateNormalUser(params) {
-	//TODO: Add this to authenticate normal user
-}
-function authenticateAdminUser(params) {
-	//TODO:Add this to Authenticate admin user
-}
 
 
 

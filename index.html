@@ -1,38 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Task Manager</title>
-		<link rel="stylesheet" href="./styles.css" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap"
-			rel="stylesheet" />
-	</head>
-	<body>
-        <div id="app">
-            <h1>MGQS Task Management System</h1>
-            <div class="task-list-container">
-                <h2>Task List</h2>
-                <input type="text" id="name-search" placeholder="Search by Name">
-                <button onclick="search()">Search</button> 
-                <button id="convert-button">To Image</button>
-                <table id="task-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Task</th>
-                        </tr>
-                    </thead>
-                    <tbody id="task-list"></tbody>
-                </table>
-            </div>
-        </div>
-    </body>
-	<script src="./scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap"
+        rel="stylesheet" />
+</head>
+<body>
+    <div class="login">
+        <p>MGQS Task Alocator</p>
+        <input type="password">
+        <br>
+        <button onclick="autenticateNormalUserOrAdminUser()">Submit</button>
+    </div>
+</body>
+<script src="./js/auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sjcl@1.0.8/core/sjcl.js"></script>
 </html>
-
-
