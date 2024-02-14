@@ -149,7 +149,10 @@ function captureTaskList() {
 	});
 }
 
-
+function logOut() {
+    sessionStorage.setItem("authenticated", "false");
+    window.location.href = "../index.html"
+}
 // Update task list on page load
 updateTaskList();
 

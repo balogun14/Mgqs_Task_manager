@@ -11,9 +11,9 @@ function authenticateNormalUserOrAdminUser() {
 	const hashedData = sjcl.codec.hex.fromBits(hashbits);
 	if (hashedData === nUsersha256) {
 		sessionStorage.setItem("authenticated", "true");
-		window.location.href = "home.html";
+		window.location.href = "pages/home.html";
 	} else if (AdUserSha === hashedData) {
-		window.location.href = "admin.html";
+		window.location.href = "pages/admin.html";
 	} else {
 		alert("Incorrect password");
 	}
@@ -21,7 +21,8 @@ function authenticateNormalUserOrAdminUser() {
 
 document.addEventListener("DOMContentLoaded", function () {
 	const isAuthenticated = sessionStorage.getItem("authenticated");
-	if (isAuthenticated) {
-		window.location.href = "home.html";
+	if (isAuthenticated === "true") {
+		window.location.href = "pages/home.html";
 	}
+
 });
