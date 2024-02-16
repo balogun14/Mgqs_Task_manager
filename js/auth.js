@@ -24,5 +24,4 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (isAuthenticated === "true") {
 		window.location.href = "pages/home.html";
 	}
-
 });

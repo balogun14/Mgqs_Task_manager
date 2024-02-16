@@ -1,39 +1,10 @@
-const clientData = {
-	1: "Abdulraheem Adebare ",
-	2: "Saleem Ahmad Abimbola",
-	3: "Khalilur Rahman Abimbola",
-	4: "Hasbiyallah Oyebo",
-	5: "Abdulbasit Abdulsalam",
-	6: "Balogun Muhammed-Awwal",
-	7: "Ibrahim Odusanya",
-	8: "Abdullah Oladejo",
-	9: "Abdullah Animashaun",
-	10: "Qaanitah Oyekola",
-	11: "Usman Afolayan",
-	12: "Ahmadraza Danmole",
-	13: "Abdultawwab Oladipupo",
-	14: "Hussein Hanif",
-	15: "Bushroh Ayelaagbe",
-	16: "Faruq Tella",
-	17: "Mamun Omolaja",
-	18: "Haruna Abdulmalik",
-	19: "Abdulazeez Shittu",
-	20: "Tahir Bastu",
-	22: "Olowofayokun Sherifdeen",
-	23: "Adeoye Aisha",
-	24: "Adekoya Yusuf",
-};
+import { myModule } from "./module";
 
-const taskCountMap = {
-	sweeping: 1,
-	"washing-plate": 3,
-	serving: 3,
-	toilet: 1,
-};
-
+var clientData = myModule.clientData;
+console.log(clientData);
 // Load names and populate the select element
 let nameSelect = document.getElementById("name");
-for (const clientId in clientData) {
+for (const clientId in window.clientData) {
 	if (clientData.hasOwnProperty(clientId)) {
 		const option = document.createElement("option");
 		option.value = clientId;
@@ -47,7 +18,6 @@ const addTaskButton = document.getElementById("add-task-button");
 addTaskButton.addEventListener("click", addTask);
 
 function addTask() {
-
 	const clientId = document.getElementById("name").value;
 	const taskType = document.getElementById("task-type").value;
 	// Validate input
@@ -113,7 +83,7 @@ function storeTask(clientId, taskType) {
 	let duplicate = false;
 	tasks.forEach((element) => {
 		console.log(element);
-		if (element.clientName == clientData[clientId]) {
+		if (element.clientName == clientData[clientId]["name"]) {
 			duplicate = true;
 		}
 	});
@@ -121,7 +91,8 @@ function storeTask(clientId, taskType) {
 		alert("This Person Has been Assigned a Task Already");
 		return;
 	}
-	tasks.push({ clientName: clientData[clientId], taskType: taskType }); // Add new task
+	tasks.push({ clientName: clientData[clientId], taskType: taskType });
+	myModule.clientData = clientData; // Add new task
 	localStorage.setItem("tasks", JSON.stringify(tasks)); // Store as JSON string
 	console.log(`Adding task: ${clientId}, ${taskType}`);
 }
@@ -135,26 +106,10 @@ function retrieveTasks() {
 function search() {
 	updateTaskList();
 }
-
-
-
-function captureTaskList() {
-	const taskList = document.getElementById("task-table");
-	html2canvas(taskList).then((canvas) => {
-		const imgData = canvas.toDataURL("image/png");
-		const downloadLink = document.createElement("a");
-		downloadLink.href = imgData;
-		downloadLink.download = "task-table.png";
-		downloadLink.click();
-	});
-}
-
-function logOut() {
-    sessionStorage.setItem("authenticated", "false");
-    window.location.href = "../index.html"
-}
+logOut = function () {
+	sessionStorage.setItem("authenticated", "false");
+	window.location.href = "../index.html";
+};
 // Update task list on page load
-updateTaskList();
-
 
 //TODO:Reduce repitition of code switching to webpack
